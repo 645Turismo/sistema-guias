@@ -27,7 +27,7 @@ php -S localhost:8080 bin/servidor.php
 
 1. No painel: criar o subdomínio `sistema` apontando para uma pasta própria, ativar **SSL** e escolher **PHP 8.x**.
 2. Criar um banco **MySQL** e uma conta de e-mail para envios (ex.: `nao-responda@645turismo.com.br`).
-3. Enviar os arquivos (o workflow `.github/workflows/deploy.yml` faz isso a cada push na `main`, usando os secrets `FTP_HOST`, `FTP_USUARIO`, `FTP_SENHA` e `FTP_PASTA`).
+3. Enviar os arquivos por FTP. Para automatizar, ative o workflow que está em `deploy/deploy.yml` (veja `deploy/LEIA-ME.md`): ele publica a cada push na `main` usando os secrets `FTP_HOST`, `FTP_USUARIO`, `FTP_SENHA` e `FTP_PASTA`.
 4. No servidor, criar `config.local.php` a partir de `config.example.php` com `'ambiente' => 'prod'`, a URL, o MySQL, o SMTP e um `setup_token` longo e aleatório.
 5. Acessar `https://sistema.645turismo.com.br/instalar`, informar o token e criar o primeiro administrador.
 6. **Apagar o `setup_token`** do `config.local.php`.
