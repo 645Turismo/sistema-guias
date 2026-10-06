@@ -1,0 +1,39 @@
+name: Deploy sistema.645turismo.com.br
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Enquanto o FTP do subdomínio não estiver cadastrado nos secrets do repositório, o deploy é pulado (sem erro).
+      - name: Verificar configuração do FTP
+        id: ftp
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+        run: |
+          if [ -z "$FTP_HOST" ]; then
+            echo "configurado=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Secrets do FTP (FTP_HOST, FTP_USUARIO, FTP_SENHA, FTP_PASTA) ainda não cadastrados: deploy pulado."
+          else
+            echo "configurado=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: FTP Deploy Locaweb
+        if: steps.ftp.outputs.configurado == 'true'
+        uses: locaweb/ftp-deploy@1.0.0
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          user: ${{ secrets.FTP_USUARIO }}
+          password: ${{ secrets.FTP_SENHA }}
+          localDir: "."
+          remoteDir: ${{ secrets.FTP_PASTA }}
+          # Nunca envia nem sobrescreve: configuração do servidor, banco local, uploads e logs (só as pastas e o
+          # .htaccess de bloqueio vão), docs e arquivos de desenvolvimento. Caminhos excluídos também não são apagados no servidor.
+          options: "-x ^\\.git/ -x ^\\.github/ -x ^\\.claude/ -x ^docs/ -x ^README\\.md$ -x ^config\\.local\\.php$ -x ^storage/[^/]*\\.sqlite -x ^storage/logs/[^.] -x ^storage/uploads/[^.] -x ^bin/seed-dev\\.php$"
