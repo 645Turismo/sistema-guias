@@ -6,7 +6,7 @@
   <?php if ($aplicadas !== null): ?>
     <div class="form">
       <p><strong>Pronto.</strong> <?= $aplicadas ? 'Atualizações aplicadas: ' . e(implode(', ', $aplicadas)) . '.' : 'O banco já estava atualizado.' ?></p>
-      <p class="texto-2">Por segurança, apague o <code>setup_token</code> do <code>config.local.php</code> no servidor.</p>
+      <p class="texto-2">Guarde o código de configuração: ele só serve para atualizar o banco depois de uma nova versão do sistema.</p>
       <a href="/admin" class="btn btn-primario btn-bloco">Ir para o Painel ADM</a>
     </div>
   <?php else: ?>

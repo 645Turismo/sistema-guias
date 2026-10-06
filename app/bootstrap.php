@@ -7,8 +7,11 @@ mb_internal_encoding('UTF-8');
 
 $arquivoConfig = RAIZ . '/config.local.php';
 if (!is_file($arquivoConfig)) {
-  http_response_code(500);
-  exit('Sistema não configurado: crie o config.local.php a partir do config.example.php.');
+  if (PHP_SAPI === 'cli') {
+    exit("Sistema não configurado: crie o config.local.php a partir do config.example.php.\n");
+  }
+  require RAIZ . '/app/configurar.php';
+  configurar_executar($arquivoConfig);
 }
 $GLOBALS['__config'] = require $arquivoConfig;
 

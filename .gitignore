@@ -6,3 +6,4 @@ storage/uploads/*
 !storage/uploads/.gitkeep
 .claude/settings.local.json
 .claude/launch.json
+producao/

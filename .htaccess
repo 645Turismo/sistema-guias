@@ -11,6 +11,11 @@ DirectoryIndex index.php
 
 RewriteEngine On
 
+# Na Locaweb o subdomínio é a pasta public_html/sistema, que também responderia como 645turismo.com.br/sistema/.
+# Qualquer acesso pelo domínio principal (ou www) vai para o endereço oficial do sistema.
+RewriteCond %{HTTP_HOST} ^(www\.)?645turismo\.com\.br$ [NC]
+RewriteRule ^(.*)$ https://sistema.645turismo.com.br/ [L,R=301]
+
 # Força HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

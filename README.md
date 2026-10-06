@@ -13,8 +13,6 @@ Lista de passageiros: importação de planilha .xlsx/.csv (cabeçalho reconhecid
 
 Todas as telas são pensadas primeiro para o celular (onde os guias usam): tabelas viram cartões, sem rolagem lateral.
 
-Ainda em construção: Disponibilidade, Recebimentos, Perfil e Ajuda (guia); Guias, Conferência, Pagamentos, Atendimento e Conteúdo (ADM); cadastro público de novos guias.
-
 ## Rodar localmente
 
 ```bash
@@ -23,13 +21,16 @@ php bin/seed-dev.php                     # cria o banco de teste (credenciais no
 php -S localhost:8080 bin/servidor.php
 ```
 
-## Instalar na Locaweb (sistema.645turismo.com.br)
+## Publicar na Locaweb (sistema.645turismo.com.br)
 
-1. No painel: criar o subdomínio `sistema` apontando para uma pasta própria, ativar **SSL** e escolher **PHP 8.x**.
-2. Criar um banco **MySQL** e uma conta de e-mail para envios (ex.: `nao-responda@645turismo.com.br`).
-3. Enviar os arquivos por FTP. Para automatizar, ative o workflow que está em `deploy/deploy.yml` (veja `deploy/LEIA-ME.md`): ele publica a cada push na `main` usando os secrets `FTP_HOST`, `FTP_USUARIO`, `FTP_SENHA` e `FTP_PASTA`.
-4. No servidor, criar `config.local.php` a partir de `config.example.php` com `'ambiente' => 'prod'`, a URL, o MySQL, o SMTP e um `setup_token` longo e aleatório.
-5. Acessar `https://sistema.645turismo.com.br/instalar`, informar o token e criar o primeiro administrador.
-6. **Apagar o `setup_token`** do `config.local.php`.
+O subdomínio aponta para a pasta `public_html/sistema`, que é a pasta `sistema/` do repositório do site (645Turismo/site). O deploy por FTP do site já publica essa pasta, então para publicar:
+
+```bash
+bash bin/publicar.sh      # copia o sistema para ../site/sistema (sem config, banco local, uploads e arquivos de dev)
+```
+
+Depois é só fazer commit e push no repositório do site. O envio nunca apaga nada no servidor.
+
+**Primeira instalação:** com o servidor ainda sem `config.local.php`, qualquer página abre `/configurar`, que pede o código de configuração (entregue à equipe fora do sistema) e as senhas do MySQL e do e-mail, testa o banco e grava o `config.local.php` no próprio servidor. Em seguida `/instalar` cria as tabelas e o primeiro administrador. Depois de cada nova versão, `/instalar` com o mesmo código aplica as atualizações do banco.
 
 As pastas `app/`, `database/`, `storage/` e `bin/` são bloqueadas para a web (`.htaccess`). Documentos e fotos ficam em `storage/uploads`, servidos só por script com login.
