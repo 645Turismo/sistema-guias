@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Manual do ADM · 645 Turismo</title>
+<link rel="stylesheet" href="manual.css">
+<style>@page { @bottom-right { content: "Manual do ADM · " counter(page); font: 600 7.5pt Montserrat, sans-serif; color: #4A5852; } @bottom-left { content: "645 Turismo · sistema.645turismo.com.br/admin"; font: 600 7.5pt Montserrat, sans-serif; color: #4A5852; } } @page capa { @bottom-right { content: none; } @bottom-left { content: none; } }
+figure.tela { margin: 3mm auto 5mm; width: 88%; }
+.duas figure.tela { width: 100%; }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }</style>
+</head>
+<body>
+
+<section class="capa">
+  <img src="logo-branco.png" alt="645 Turismo">
+  <p class="rotulo">Painel ADM</p>
+  <h1>Manual do<br>Painel ADM</h1>
+  <p class="sub">Como cadastrar viagens e tours, montar a lista de passageiros, escalar guias, conferir relatórios e notas fiscais e registrar pagamentos.</p>
+  <div class="faixa"><span>Acesse em <b>sistema.645turismo.com.br/admin</b></span><span>Versão de outubro de 2026</span></div>
+</section>
+
+<section class="sumario">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CONTEÚDO</span>O que você encontra aqui</h2>
+  <p class="lead">O capítulo 2 resume o caminho de uma viagem do cadastro ao pagamento. Os demais detalham cada tela.</p>
+  <ol>
+    <li><span>01</span>Acesso e perfis</li>
+    <li><span>02</span>O caminho de uma viagem</li>
+    <li><span>03</span>Tela Hoje</li>
+    <li><span>04</span>Cadastrar uma viagem/tour</li>
+    <li><span>05</span>Copiar uma viagem</li>
+    <li><span>06</span>Página da viagem e publicação</li>
+    <li><span>07</span>Dias de trabalho e vagas</li>
+    <li><span>08</span>Escalar guias</li>
+    <li><span>09</span>Lista de passageiros</li>
+    <li><span>10</span>Importar a planilha</li>
+    <li><span>11</span>Guias: triagem e ficha</li>
+    <li><span>12</span>Pré-cadastro em massa</li>
+    <li><span>13</span>Conferência</li>
+    <li><span>14</span>Pagamentos</li>
+    <li><span>15</span>Atendimento e recados</li>
+    <li><span>16</span>Conteúdo, Funções e Equipe</li>
+  </ol>
+</section>
+
+<section>
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 01</span>Acesso e perfis</h2>
+  <p class="lead">O Painel ADM fica em <b>sistema.645turismo.com.br/admin</b>. Cada pessoa entra com o próprio e-mail e senha.</p>
+  <figure class="tela"><img src="fotos/a01-entrar.png" alt=""><figcaption>Entrada do Painel ADM</figcaption></figure>
+  <p>Esqueceu a senha? Use <b>"Esqueci a senha"</b>: o link chega no e-mail cadastrado. Novas pessoas da equipe recebem um convite por e-mail para criar a senha (capítulo 16).</p>
+  <table>
+    <tr><th style="width:24%">Perfil</th><th>O que acessa</th></tr>
+    <tr><td>Administrador</td><td>Tudo, inclusive a tela Equipe (quem acessa o painel)</td></tr>
+    <tr><td>Coordenador</td><td>Viagens, passageiros, escala, guias, pré-cadastro, funções, conteúdo, conferência e atendimento</td></tr>
+    <tr><td>Financeiro</td><td>Conferência de relatórios e notas, pagamentos e atendimento</td></tr>
+  </table>
+  <div class="dica"><b>Privacidade</b>Os guias só veem os próprios dados. Documentos, notas e comprovantes abrem por links únicos, que não podem ser adivinhados.</div>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 02</span>O caminho de uma viagem</h2>
+  <p class="lead">Toda viagem ou tour segue a mesma ordem. A página da viagem mostra cada etapa com um ✓ quando está pronta.</p>
+  <div class="fluxo">
+    <span><b>1</b>Cadastrar</span><span><b>2</b>Dias de trabalho</span><span><b>3</b>Vagas por função</span><span><b>4</b>Passageiros</span><span><b>5</b>Publicar</span>
+  </div>
+  <div class="fluxo">
+    <span><b>6</b>Escalar guias</span><span><b>7</b>Acompanhar no dia</span><span><b>8</b>Conferir relatório e NF</span><span><b>9</b>Pagar</span><span><b>10</b>Concluir</span>
+  </div>
+  <table>
+    <tr><th style="width:28%">Etapa</th><th>Quem faz e onde</th></tr>
+    <tr><td>1 a 5</td><td>Coordenação, em Viagens/Tours (capítulos 4 a 10)</td></tr>
+    <tr><td>6 Escalar</td><td>Coordenação convida ou aloca guias; o guia aceita pela Área do Guia</td></tr>
+    <tr><td>7 No dia</td><td>Guia faz check-in, check-out e no-show; a equipe acompanha ao vivo na lista</td></tr>
+    <tr><td>8 Conferir</td><td>Guia envia relatório e nota fiscal; coordenação ou financeiro aprovam em Conferência</td></tr>
+    <tr><td>9 Pagar</td><td>Financeiro registra o pagamento com comprovante em Pagamentos</td></tr>
+    <tr><td>10 Concluir</td><td>Coordenação marca a viagem como concluída</td></tr>
+  </table>
+  <div class="dica"><b>Rascunho primeiro</b>Viagem nova nasce como rascunho: nenhum guia vê até você publicar. Assim dá para montar tudo com calma.</div>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 03</span>Tela Hoje</h2>
+  <p class="lead">A primeira tela depois de entrar mostra o que precisa de atenção agora.</p>
+  <figure class="tela"><img src="fotos/a02-hoje.png" alt=""><figcaption>Operação de hoje</figcaption></figure>
+  <ul>
+    <li><b>Em campo hoje:</b> viagens com trabalho no dia e o andamento dos guias.</li>
+    <li><b>Fila de trabalho:</b> vagas em aberto nos próximos 7 dias, guias sem responder há mais de 24 h, cadastros para triagem, relatórios e notas a conferir. Clique na linha para resolver.</li>
+    <li><b>A pagar:</b> total de diárias com nota conferida, aguardando pagamento.</li>
+    <li><b>Próximas viagens/tours</b> e o botão <span class="botao">Nova viagem/tour</span>.</li>
+  </ul>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 04</span>Cadastrar uma viagem/tour</h2>
+  <p class="lead">Em <b>Viagens/Tours</b>, clique em <span class="botao">Nova viagem/tour</span>. A lista mostra as viagens com filtros por situação e busca por código, nome ou cliente.</p>
+  <figure class="tela"><img src="fotos/a04-nova.png" alt=""><figcaption>Identificação da nova viagem</figcaption></figure>
+</section>
+
+<section class="secao segue" style="margin-top:4mm">
+  <h3>Campos do cadastro</h3>
+  <table>
+    <tr><th style="width:26%">Bloco</th><th>O que preencher</th></tr>
+    <tr><td>Identificação</td><td><b>Código</b> definido pela equipe, em texto livre (ex.: TR.R.20261010.1), que não pode repetir; nome, tipo, cliente, datas de ida e volta, <b>com ou sem pernoite</b> e hospedagem</td></tr>
+    <tr><td>Trajeto e horários</td><td><b>Origens</b> (pontos de embarque, cada uma com horário opcional; use <b>+ Adicionar origem</b> para mais), destino, ponto de encontro, link do mapa e os horários de <b>apresentação, saída, saída do destino e chegada prevista</b></td></tr>
+    <tr><td>Veículo</td><td>Escolha na lista: Micro-ônibus 26, Ônibus Padrão 46 ou 50, Ônibus DD 64 ou Outro (descreva e informe os lugares). Informe as <b>poltronas bloqueadas</b> (ex.: 1, 2, 45-46). O mapa do carro é gerado disso</td></tr>
+    <tr><td>Equipe e contatos</td><td>Coordenação, motorista, <b>guia local</b> e outros contatos com telefone</td></tr>
+    <tr><td>Briefing</td><td>Perfil e idioma do grupo, uniforme, alimentação, roteiro, regras e observações</td></tr>
+    <tr><td>Nota fiscal</td><td>Prazos para enviar a nota e para pagar, e instruções da nota</td></tr>
+    <tr><td>Dias de trabalho</td><td>Deixe marcado <b>"Criar um dia de trabalho para cada data"</b> para gerar os dias automaticamente</td></tr>
+  </table>
+  <div class="duas">
+    <figure class="tela"><img src="fotos/a05-nova-origens.png" alt=""><figcaption>Origens e horários</figcaption></figure>
+    <figure class="tela"><img src="fotos/a06-nova-veiculo.png" alt=""><figcaption>Veículo, poltronas e contatos</figcaption></figure>
+  </div>
+  <p>Clique em <span class="botao">Criar como rascunho</span>. Você vai para a página da viagem (capítulo 6).</p>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 05</span>Copiar uma viagem</h2>
+  <p class="lead">Para viagens que se repetem, copie uma existente e mude só o que for diferente.</p>
+  <ol class="passos">
+    <li>Abra a viagem que servirá de modelo e clique em <span class="botao contorno">Copiar viagem</span>.</li>
+    <li>O cadastro abre preenchido com os dados, origens e contatos. Informe o <b>novo código</b> e as <b>novas datas</b>.</li>
+    <li>Deixe marcado <b>"Copiar as vagas por função e o valor da diária"</b> se elas forem iguais.</li>
+    <li>Clique em <span class="botao">Criar como rascunho</span>.</li>
+  </ol>
+  <figure class="tela"><img src="fotos/a13-copiar.png" alt=""><figcaption>Cadastro aberto a partir de uma cópia</figcaption></figure>
+  <div class="atencao"><b>O que não é copiado</b>Passageiros e guias escalados ficam de fora: cada viagem tem a sua lista e a sua escala.</div>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 06</span>Página da viagem e publicação</h2>
+  <p class="lead">Tudo sobre uma viagem fica numa página: etapas, horários, briefing, passageiros, dias, vagas, escala e relatórios.</p>
+  <figure class="tela"><img src="fotos/a07-viagem.png" alt=""><figcaption>Página de uma viagem publicada</figcaption></figure>
+  <h3>Botões do topo</h3>
+  <table>
+    <tr><th style="width:28%">Botão</th><th>O que faz</th></tr>
+    <tr><td>Editar dados</td><td>Altera o cadastro (horários, veículo, origens, contatos)</td></tr>
+    <tr><td>Copiar viagem</td><td>Cria outra viagem a partir desta (capítulo 5)</td></tr>
+    <tr><td>Publicar</td><td>Os guias passam a ver a viagem e você pode convidar</td></tr>
+    <tr><td>Voltar a rascunho</td><td>Esconde dos guias até publicar de novo</td></tr>
+    <tr><td>Concluir</td><td>Marca a viagem como encerrada</td></tr>
+    <tr><td>Cancelar</td><td>Cancela a viagem e todos os convites e confirmações</td></tr>
+  </table>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 07</span>Dias de trabalho e vagas</h2>
+  <p class="lead">Os dias de trabalho dizem quando os guias trabalham. As vagas dizem quantos guias de cada função e quanto cada um ganha por diária.</p>
+  <figure class="tela"><img src="fotos/a08-dias-vagas.png" alt=""><figcaption>Dias de trabalho e vagas por função</figcaption></figure>
+  <ul>
+    <li><b>Adicionar dia de trabalho:</b> data, horário de apresentação, início, fim, pernoite e observação. Use <b>Remover</b> para tirar um dia.</li>
+    <li><b>Adicionar ou alterar vaga:</b> escolha a função, a quantidade de vagas e o <b>valor da diária</b>. A tabela mostra vagas e ocupadas.</li>
+  </ul>
+  <div class="dica"><b>Valor da diária</b>O guia recebe o valor no e-mail do convite e, depois de aceitar, vê em Ganhos. Ele não aparece nas telas de vagas e convites da Área do Guia.</div>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 08</span>Escalar guias</h2>
+  <p class="lead">Com a viagem publicada, escolha os guias na seção <b>Guias escalados</b> da página da viagem.</p>
+  <figure class="tela"><img src="fotos/a09-escalar.png" alt=""><figcaption>Alocar guia</figcaption></figure>
+  <ol class="passos">
+    <li>Em <b>Guia</b>, escolha a pessoa. A lista mostra a situação de cada um nos dias da viagem: disponível, sem marcação, indisponível ou já escalado em outra viagem no mesmo dia.</li>
+    <li>Escolha a <b>função</b> (vaga) e marque os <b>dias</b>.</li>
+    <li>Clique em <span class="botao">Escalar guia</span>. O guia recebe um convite por e-mail e precisa aceitar.</li>
+  </ol>
+  <p>Já combinou com o guia? Marque <b>"Já combinado com o guia: alocar direto"</b>. Ele entra confirmado, sem precisar aceitar, e recebe um e-mail avisando.</p>
+  <p>A tabela mostra cada guia com a situação do convite e o WhatsApp para contato. Use <b>Cancelar</b> para tirar alguém antes do trabalho; o guia é avisado por e-mail.</p>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 09</span>Lista de passageiros</h2>
+  <p class="lead">A lista fica nas colunas da planilha da 645 e se atualiza ao vivo. No dia, você acompanha os check-ins feitos pelos guias.</p>
+  <figure class="tela"><img src="fotos/a10-passageiros.png" alt=""><figcaption>Lista de passageiros no Painel ADM</figcaption></figure>
+  <table>
+    <tr><th style="width:30%">Ação</th><th>Como</th></tr>
+    <tr><td>Incluir passageiro</td><td><span class="botao contorno">+ Incluir passageiro</span>: nome, documento, nascimento, venda (reserva), embarque, poltrona, telefone, observação e tipo de passageiro</td></tr>
+    <tr><td>Editar ou remover</td><td>Ícone de lápis na linha; no formulário há <b>Remover da lista</b></td></tr>
+    <tr><td>Ajustes do guia</td><td>Aparecem em amarelo (o original aparece ao passar o mouse). Use <b>Incorporar ajustes do guia</b> para torná-los oficiais</td></tr>
+    <tr><td>Check-in, check-out e no-show</td><td>A equipe também pode marcar, em qualquer dia</td></tr>
+    <tr><td>Mapa do carro</td><td>A mesma visão do guia, com as poltronas por cor</td></tr>
+  </table>
+  <div class="atencao"><b>Regras conferidas pelo sistema</b>O embarque precisa ser um dos locais da viagem. A poltrona precisa existir, não estar bloqueada e estar livre; só criança de colo divide poltrona com um adulto.</div>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 10</span>Importar a planilha</h2>
+  <p class="lead">No fim da página de passageiros, abra <b>Importar da planilha</b>. Aceita arquivo .xlsx ou .csv, ou linhas coladas do Excel.</p>
+  <figure class="tela"><img src="fotos/a11-importar.png" alt=""><figcaption>Importar da planilha</figcaption></figure>
+  <ol class="passos">
+    <li>Envie a planilha (até 5 MB) ou cole as linhas. Use <b>Baixar modelo</b> se precisar.</li>
+    <li>Clique em <span class="botao">Ler planilha e conferir</span>. As colunas são reconhecidas pelo nome do cabeçalho, em qualquer ordem.</li>
+    <li>Confira a prévia: quantos vão entrar, quantos já estão na lista (pulados) e as linhas ignoradas.</li>
+    <li>Clique em <span class="botao">Importar</span>. Nada é gravado antes disso.</li>
+  </ol>
+</section>
+
+<section class="secao segue">
+  <figure class="tela"><img src="fotos/a12-importar-previa.png" alt=""><figcaption>Prévia com ajustes antes de importar</figcaption></figure>
+  <p>A prévia avisa e ajusta o que não segue as regras, sem perder o passageiro:</p>
+  <ul>
+    <li><b>Embarque fora da viagem</b> fica em branco e o texto original vai para a observação.</li>
+    <li><b>Poltrona bloqueada, inexistente ou ocupada</b> fica em branco para você escolher outra.</li>
+    <li><b>Tipo de passageiro</b> é reconhecido por nomes como Adulto, Criança, Criança de colo, ADT, CHD e INF.</li>
+  </ul>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 11</span>Guias: triagem e ficha</h2>
+  <p class="lead">Em <b>Guias</b> ficam os cadastros novos para aprovar e o banco de guias, com filtros por função, região e idioma.</p>
+  <figure class="tela"><img src="fotos/a14-guias.png" alt=""><figcaption>Lista de guias</figcaption></figure>
+  <p>As abas separam: para triagem, com pendência, aprovados, inativos e reprovados, pré-cadastro, cadastro incompleto e todos.</p>
+</section>
+
+<section class="secao segue">
+  <figure class="tela"><img src="fotos/a15-guia-ficha.png" alt=""><figcaption>Ficha do guia</figcaption></figure>
+  <table>
+    <tr><th style="width:30%">Na ficha</th><th>Para que serve</th></tr>
+    <tr><td>Aprovar cadastro</td><td>Libera o guia para receber convites; ele é avisado por e-mail</td></tr>
+    <tr><td>Pedir correção</td><td>Volta para o guia com o motivo; ele corrige e reenvia</td></tr>
+    <tr><td>Reprovar, inativar, bloquear</td><td>Encerra ou suspende o acesso (reprovar e bloquear pedem motivo)</td></tr>
+    <tr><td>Notas internas</td><td>Observações que só a equipe vê</td></tr>
+    <tr><td>Reenviar acesso</td><td>Gera nova senha temporária e envia por e-mail</td></tr>
+    <tr><td>Enviar link de nova senha</td><td>Manda um link para o guia criar outra senha</td></tr>
+  </table>
+  <p>A ficha mostra dados pessoais, atuação (funções, idiomas, Cadastur), recebimento (CNPJ ou "não emite NF" e PIX) e o histórico de trabalhos.</p>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 12</span>Pré-cadastro em massa</h2>
+  <p class="lead">Para cadastrar vários guias de uma vez. Cada um recebe por e-mail uma senha temporária, troca no primeiro acesso e completa o cadastro.</p>
+  <figure class="tela"><img src="fotos/a16-pre-cadastro.png" alt=""><figcaption>Pré-cadastro em massa</figcaption></figure>
+  <ol class="passos">
+    <li>Em <b>Guias</b>, clique em <span class="botao">Pré-cadastrar em massa</span> e depois em <b>Baixar planilha padrão</b>.</li>
+    <li>Preencha uma linha por guia: <b>Nome completo, CPF e E-mail</b> (obrigatórios), Celular, Data de nascimento e Funções.</li>
+    <li>Envie a planilha (.xlsx ou .csv) e clique em <span class="botao">Ler planilha e conferir</span>.</li>
+    <li>Confira a prévia e clique em <span class="botao">Criar e enviar</span>.</li>
+  </ol>
+</section>
+
+<section class="secao segue">
+  <figure class="tela"><img src="fotos/a17-pre-previa.png" alt=""><figcaption>Prévia: linhas aceitas e recusadas</figcaption></figure>
+  <ul>
+    <li>A prévia recusa CPF ou e-mail inválido, repetido na planilha ou já cadastrado. Nada é duplicado.</li>
+    <li>A senha temporária vale <b>7 dias</b>. Se vencer, use <b>Reenviar acesso</b> na ficha do guia.</li>
+    <li>O guia aparece na aba <b>Pré-cadastro</b> até completar os dados; depois vai para <b>Para triagem</b>.</li>
+  </ul>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 13</span>Conferência</h2>
+  <p class="lead">Depois do trabalho, os guias enviam o relatório da viagem e a nota fiscal. A conferência libera o pagamento.</p>
+  <figure class="tela"><img src="fotos/a18-conferencia.png" alt=""><figcaption>Conferência</figcaption></figure>
+  <ul>
+    <li>Abas <b>Notas fiscais</b>, <b>Relatórios</b> e <b>Já conferidos</b>.</li>
+    <li>Abra a nota, confira número, valor e dados da empresa, e <b>aprove</b> ou <b>devolva</b> com o motivo. O guia recebe e-mail nos dois casos.</li>
+    <li>Nota aprovada vai para <b>Pagamentos</b>. Guias que não emitem nota vão direto para lá depois do relatório.</li>
+  </ul>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 14</span>Pagamentos</h2>
+  <p class="lead">Lista o que está pronto para pagar, por guia e viagem, com o PIX e os dados bancários.</p>
+  <figure class="tela"><img src="fotos/a19-pagamentos.png" alt=""><figcaption>Pagamentos</figcaption></figure>
+  <ol class="passos">
+    <li>Na aba <b>A pagar</b>, veja total, quantidade e previsões vencidas.</li>
+    <li>Faça o PIX pelo banco e registre o pagamento informando a <b>data</b> e anexando o <b>comprovante</b>.</li>
+    <li>O guia vê o pagamento e o comprovante em Ganhos.</li>
+  </ol>
+  <p>Use <b>Exportar CSV</b> para levar a lista ao banco ou à contabilidade. A aba <b>Pagos</b> guarda o histórico.</p>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 15</span>Atendimento e recados</h2>
+  <p class="lead">Os chamados abertos pelos guias chegam aqui, com os urgentes primeiro.</p>
+  <figure class="tela"><img src="fotos/a20-atendimento.png" alt=""><figcaption>Atendimento</figcaption></figure>
+  <ul>
+    <li>Abas: aguardando resposta, em andamento, resolvidos e <b>recados para os guias</b>.</li>
+    <li>Abra o chamado, responda e marque a situação. O guia vê a resposta em "Para resolver".</li>
+    <li><b>Recados:</b> avisos que aparecem na tela Hoje de todos os guias (ex.: uniforme novo).</li>
+  </ul>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <h2><span class="num">CAPÍTULO 16</span>Conteúdo, Funções e Equipe</h2>
+  <h3>Conteúdo</h3>
+  <p>O que os guias encontram em Ajuda: perguntas frequentes, guia prático, vídeos (links do YouTube ou Vimeo) e contatos da equipe. Use <b>Publicar</b>, <b>Editar</b>, <b>Esconder</b> e <b>Apagar</b>.</p>
+  <figure class="tela"><img src="fotos/a21-conteudo.png" alt=""><figcaption>Conteúdo da Ajuda</figcaption></figure>
+</section>
+
+<section class="secao">
+  <div class="marca-topo"><img src="logo-preto.png" alt=""><span>Manual do ADM</span></div>
+  <div class="duas">
+    <div>
+      <h3>Funções</h3>
+      <p>As funções que os guias exercem (Guia de Turismo, Guia Bilíngue, Receptivo...). Elas aparecem no cadastro do guia e nas vagas. Marque <b>"Exige Cadastur"</b> para tornar o Cadastur obrigatório e <b>"Exige idioma estrangeiro"</b> quando for o caso.</p>
+    </div>
+    <div>
+      <h3>Equipe (só Administrador)</h3>
+      <p>Quem acessa o Painel ADM e com que perfil. Informe nome, e-mail e perfil e clique em <span class="botao">Enviar convite</span>: a pessoa recebe um link (válido por 3 dias) para criar a senha.</p>
+    </div>
+  </div>
+  <div class="duas">
+    <figure class="tela"><img src="fotos/a22-funcoes.png" alt=""><figcaption>Funções</figcaption></figure>
+    <figure class="tela"><img src="fotos/a23-equipe.png" alt=""><figcaption>Equipe</figcaption></figure>
+  </div>
+  <div class="dica"><b>Depois de uma nova versão do sistema</b>As atualizações do banco de dados são aplicadas automaticamente na publicação. Não é preciso fazer nada.</div>
+</section>
+
+<section class="fim">
+  <img src="logo-preto.png" alt="645 Turismo">
+  <p class="lead">Painel ADM · sistema.645turismo.com.br/admin</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* Identidade 645 Turismo: preto, verde-escuro #05100C, menta #53D9B2, amarelo #FADA28; Montserrat + Newsreader. */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --preto: #000; --escuro: #05100C; --menta: #53D9B2; --menta-texto: #0B7A5B; --amarelo: #FADA28;
+  --texto: #14201B; --texto-2: #4A5852; --linha: #DCE3E0; --fundo-suave: #F2F6F4;
+}
+@page { size: A4; margin: 16mm 16mm 18mm;
+}
+@page capa { margin: 0; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 10pt; line-height: 1.55; color: var(--texto); }
+
+/* Capa */
+.capa { page: capa; height: 297mm; width: 210mm; background: var(--preto); color: #fff; padding: 22mm 20mm; display: flex; flex-direction: column; position: relative; overflow: hidden; break-after: page; }
+.capa::after { content: ""; position: absolute; right: -40mm; top: 70mm; width: 150mm; height: 150mm; border-radius: 50%; background: radial-gradient(circle, rgba(83,217,178,.28), rgba(83,217,178,0) 65%); }
+.capa img { width: 46mm; }
+.capa .rotulo { margin-top: auto; font-size: 9pt; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--menta); }
+.capa h1 { margin: 6mm 0 0; font-family: 'Newsreader', serif; font-weight: 400; font-size: 46pt; line-height: 1.02; }
+.capa .sub { margin: 8mm 0 0; max-width: 125mm; font-size: 12pt; color: #C9D3CF; }
+.capa .faixa { margin-top: 16mm; display: flex; gap: 10mm; align-items: center; padding-top: 6mm; border-top: 1px solid #263530; font-size: 9pt; color: #9FB0A9; position: relative; z-index: 1; }
+.capa .faixa b { color: var(--amarelo); font-weight: 600; }
+
+/* Sumário */
+.sumario { break-after: page; }
+.sumario ol { list-style: none; padding: 0; margin: 8mm 0 0; columns: 2; column-gap: 12mm; }
+.sumario li { break-inside: avoid; display: flex; gap: 4mm; padding: 2.6mm 0; border-bottom: 1px solid var(--linha); font-weight: 600; }
+.sumario li span { color: var(--menta-texto); font-family: 'Newsreader', serif; font-weight: 500; min-width: 7mm; }
+
+/* Títulos */
+.marca-topo { display: flex; justify-content: space-between; align-items: center; padding-bottom: 4mm; margin-bottom: 8mm; border-bottom: 2px solid var(--preto); font-size: 8pt; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.marca-topo img { height: 7mm; }
+h2 { margin: 0 0 3mm; font-family: 'Newsreader', serif; font-weight: 400; font-size: 25pt; line-height: 1.1; color: var(--preto); }
+h2 .num { display: block; margin-bottom: 1.5mm; font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 700; letter-spacing: .28em; color: var(--menta-texto); }
+h3 { margin: 6mm 0 2mm; font-size: 11pt; font-weight: 700; color: var(--preto); }
+p { margin: 0 0 3mm; }
+.lead { font-size: 11pt; color: var(--texto-2); margin-bottom: 6mm; }
+.secao { break-before: page; }
+.secao.segue { break-before: auto; margin-top: 12mm; }
+
+/* Passos numerados */
+ol.passos { list-style: none; counter-reset: p; padding: 0; margin: 0 0 4mm; }
+ol.passos > li { counter-increment: p; position: relative; padding: 0 0 3mm 10mm; }
+ol.passos > li::before { content: counter(p); position: absolute; left: 0; top: .1mm; width: 6.4mm; height: 6.4mm; border-radius: 50%; background: var(--menta); color: var(--preto); font-size: 8.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+ul { margin: 0 0 3mm; padding-left: 5mm; }
+li { margin-bottom: 1.2mm; }
+b, strong { font-weight: 700; color: var(--preto); }
+.botao { display: inline-block; padding: .2mm 2.4mm; border-radius: 999px; background: var(--menta); color: var(--preto); font-size: 7.5pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.botao.contorno { background: none; border: 1px solid var(--preto); }
+.botao.vermelho { background: #E8674F; }
+
+/* Caixas */
+.dica, .atencao { break-inside: avoid; margin: 4mm 0; padding: 3mm 4mm; border-left: 3px solid var(--menta); background: var(--fundo-suave); font-size: 9.5pt; }
+.atencao { border-left-color: var(--amarelo); background: #FFF9DB; }
+.dica b:first-child, .atencao b:first-child { display: block; font-size: 7.5pt; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1mm; }
+
+/* Texto + celular lado a lado */
+.lado { display: grid; grid-template-columns: 1fr 48mm; gap: 10mm; align-items: start; margin-bottom: 4mm; }
+.lado.duplo { display: flex; flex-wrap: wrap; justify-content: center; gap: 4mm 12mm; }
+.lado.duplo > div { flex: 1 1 100%; }
+.lado.duplo > figure { width: 45mm; }
+.lado.duplo > figure img { border-width: 1.8mm; border-radius: 5mm; }
+figure { margin: 0; break-inside: avoid; }
+figure.celular img { width: 100%; display: block; border: 1.8mm solid var(--preto); border-radius: 6mm; box-shadow: 0 2mm 6mm rgba(0,0,0,.18); }
+figure.tela img { width: 100%; display: block; border: 1px solid #2A3833; border-radius: 2mm; box-shadow: 0 1.5mm 5mm rgba(0,0,0,.15); }
+figcaption { margin-top: 2mm; font-size: 8pt; color: var(--texto-2); text-align: center; }
+figure.tela { margin: 4mm 0 6mm; }
+
+/* Fluxo (etapas em linha) */
+.fluxo { display: flex; flex-wrap: wrap; gap: 2mm; margin: 4mm 0 6mm; }
+.fluxo span { flex: 1 1 0; min-width: 26mm; padding: 2.4mm 2mm; background: var(--escuro); color: #fff; font-size: 7.6pt; font-weight: 600; text-align: center; border-radius: 1.5mm; position: relative; }
+.fluxo span b { display: block; color: var(--menta); font-size: 9pt; }
+
+/* Tabelas */
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9pt; break-inside: avoid; }
+th { text-align: left; padding: 2mm 2.5mm; background: var(--preto); color: #fff; font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; }
+td { padding: 2mm 2.5mm; border-bottom: 1px solid var(--linha); vertical-align: top; }
+tr:nth-child(even) td { background: var(--fundo-suave); }
+td:first-child { font-weight: 600; color: var(--preto); }
+
+.fim { break-before: page; height: 250mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.fim img { width: 40mm; margin-bottom: 8mm; }
+h2, h3 { break-after: avoid; }
