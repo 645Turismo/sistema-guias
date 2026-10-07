@@ -62,8 +62,8 @@ b, strong { font-weight: 700; color: var(--preto); }
 .lado.duplo > figure { width: 45mm; }
 .lado.duplo > figure img { border-width: 1.8mm; border-radius: 5mm; }
 figure { margin: 0; break-inside: avoid; }
-figure.celular img { width: 100%; display: block; border: 1.8mm solid var(--preto); border-radius: 6mm; box-shadow: 0 2mm 6mm rgba(0,0,0,.18); }
-figure.tela img { width: 100%; display: block; border: 1px solid #2A3833; border-radius: 2mm; box-shadow: 0 1.5mm 5mm rgba(0,0,0,.15); }
+figure.celular img { width: 100%; display: block; border: 1.8mm solid var(--preto); border-radius: 6mm; }
+figure.tela img { width: 100%; display: block; border: 0.8mm solid var(--preto); border-radius: 2mm; }
 figcaption { margin-top: 2mm; font-size: 8pt; color: var(--texto-2); text-align: center; }
 figure.tela { margin: 4mm 0 6mm; }
 
