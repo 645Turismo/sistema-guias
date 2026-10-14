@@ -5,6 +5,7 @@ const D = new URL('./fotos/', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '
 const espera = ms => new Promise(r => setTimeout(r, ms));
 const { pagina: p, fechar } = await abrirNavegador(D + '../perfil-chrome-adm');
 await p.tamanho(1366, 860, false);
+await p.s('Network.enable'); await p.s('Network.clearBrowserCookies');
 const foto = (nome, o) => p.foto(D + nome + '.png', o).then(() => console.log('ok', nome));
 const rolar = (sel, ajuste = 90) => p.js(`const e = document.querySelector(${JSON.stringify(sel)}); if (!e) throw new Error('sem ' + ${JSON.stringify(sel)}); e.scrollIntoView({block: 'start'}); window.scrollBy(0, -${ajuste}); await new Promise(r => setTimeout(r, 400));`);
 const submeter = async () => { await espera(2500); };
@@ -19,9 +20,13 @@ try {
   await p.ir(B + '/admin/viagens/nova'); await foto('a04-nova');
   await rolar('[name="origens[]"]', 160); await foto('a05-nova-origens');
   await rolar('[name=veiculo]', 160); await foto('a06-nova-veiculo');
-  await p.ir(B + '/admin/viagens/3'); await foto('a07-viagem');
-  await rolar('#dias'); await foto('a08-dias-vagas');
+  await p.ir(B + '/admin/viagens/1'); await foto('a07-viagem');
   await rolar('#equipe'); await foto('a09-escalar');
+  await p.ir(B + '/admin/servicos'); await foto('a24-servicos');
+  await p.ir(B + '/admin/servicos/nova'); await foto('a25-novo-servico');
+  await rolar('[name=destino]', 160); await foto('a25b-servico-local');
+  await p.ir(B + '/admin/viagens/4'); await rolar('#dias'); await foto('a08-dias-vagas');
+  await rolar('#vagas'); await foto('a08b-vagas');
   await p.ir(B + '/admin/viagens/1/passageiros', 2000); await foto('a10-passageiros');
   await rolar('#importar', 120);
   await p.js(`document.querySelector('#importar').open = true; await new Promise(r => setTimeout(r, 300));`);

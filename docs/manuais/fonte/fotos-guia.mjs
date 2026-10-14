@@ -1,4 +1,5 @@
-// Capturas do Manual do Guia (celular 390 x 844, retina). Dados fictícios do servidor de teste local.
+// Capturas do Manual do Prestador (celular 390 x 844, retina). Dados fictícios do servidor de teste local
+// (bin/seed-dev.php + dados-manual.php).
 import { abrirNavegador } from './cdp.mjs';
 import { execFileSync } from 'node:child_process';
 const estado = e => console.log(execFileSync('C:/Users/marcu/tools/php/php.exe', [new URL('./estado.php', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1'), e]).toString().trim());
@@ -9,7 +10,7 @@ const espera = ms => new Promise(r => setTimeout(r, ms));
 const { pagina: p, fechar } = await abrirNavegador(D + '../perfil-chrome-guia');
 await p.tamanho(390, 844, true);
 const foto = (nome, o) => p.foto(D + nome + '.png', o).then(() => console.log('ok', nome));
-const rolar = sel => p.js(`const e = document.querySelector(${JSON.stringify(sel)}); if (e) { e.scrollIntoView({block: 'start'}); window.scrollBy(0, -70); } await new Promise(r => setTimeout(r, 400));`);
+const rolar = sel => p.js(`const e = document.querySelector(${JSON.stringify(sel)}); if (!e) throw new Error('sem ' + ${JSON.stringify(sel)}); e.scrollIntoView({block: 'start'}); window.scrollBy(0, -70); await new Promise(r => setTimeout(r, 400));`);
 async function entrar(cpf, senha) {
   await p.ir(B + '/');
   await p.js(`document.querySelector('[name=cpf]').value = ${JSON.stringify(cpf)}; document.querySelector('[name=senha]').value = ${JSON.stringify(senha)}; document.querySelector('[name=senha]').form.submit();`);
@@ -17,6 +18,8 @@ async function entrar(cpf, senha) {
 }
 
 try {
+  // Começa sem sessão (o perfil do navegador guarda o login da execução anterior).
+  await p.s('Network.enable'); await p.s('Network.clearBrowserCookies');
   // Entrada e primeiro acesso
   await p.ir(B + '/');
   await rolar('.painel-acesso');
@@ -36,23 +39,29 @@ try {
   await p.s('Network.enable'); await p.s('Network.clearBrowserCookies');
   estado('normal');
 
-  // Guia em atividade
+  // Prestador em atividade
   await entrar('529.982.247-25', 'Guia2026teste');
   await p.ir(B + '/guia/hoje');
   await foto('g05-hoje');
   await p.ir(B + '/guia/viagens?aba=convites');
   await foto('g06-viagens');
-  await p.ir(B + '/guia/viagens/3');
+  await p.ir(B + '/guia/viagens/2');
   await rolar('.convite');
   await foto('g07-convite');
-  await p.ir(B + '/guia/viagens/2');
+  await p.ir(B + '/guia/viagens/1');
   await foto('g08-briefing');
+  await rolar('#t-equipe');
+  await foto('g08b-equipe');
 
+  // Lista de passageiros (dia de hoje)
   await p.ir(B + '/guia/viagens/1/passageiros', 2000);
   await foto('g09-lista-topo');
   await rolar('[data-corpo] tr');
   await foto('g10-lista-cartoes');
-  await p.js(`document.querySelector('[data-corpo] .btn-editar').click(); await new Promise(r => setTimeout(r, 500));`);
+  await p.js(`document.querySelector('[data-corpo] .btn-mais').click(); await new Promise(r => setTimeout(r, 500));`);
+  await rolar('[data-corpo] tr');
+  await foto('g10b-mais');
+  await p.js(`document.querySelector('.lp-detalhe .info-acoes .btn-contorno:last-child').click(); await new Promise(r => setTimeout(r, 500));`);
   await foto('g11-editar');
   await p.js(`document.querySelector('[data-fechar]').click(); document.querySelector('[data-aba=mapa]').click(); await new Promise(r => setTimeout(r, 400));`);
   await rolar('.carro-moldura');
@@ -61,9 +70,20 @@ try {
   await rolar('[data-info]');
   await foto('g13-poltrona');
 
+  // Serviços
+  await p.ir(B + '/guia/servicos?aba=convites');
+  await foto('g20-servicos');
+  await p.ir(B + '/guia/servicos/4');
+  await foto('g21-servico');
+  await rolar('#t-dias');
+  await foto('g22-servico-dias');
+
+  // Pós-viagem, agenda, ganhos, perfil e ajuda
+  await p.ir(B + '/guia/pos-viagem');
+  await foto('g14-pos-viagem');
   await p.ir(B + '/guia/viagens/1');
-  await rolar('#relatorio');
-  await foto('g14-relatorio');
+  await rolar('#comentarios');
+  await foto('g14b-comentarios');
   await p.ir(B + '/guia/disponibilidade');
   await foto('g15-disponibilidade');
   await p.ir(B + '/guia/recebimentos');
