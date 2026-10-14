@@ -7,3 +7,4 @@ storage/uploads/*
 .claude/settings.local.json
 .claude/launch.json
 producao/
+docs/manuais/fonte/perfil-chrome-*/
