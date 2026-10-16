@@ -33,7 +33,7 @@ $guiaId = inserir('guias', [
   'nacionalidade' => 'Brasileiro', 'camiseta' => 'M', 'pcd' => 0, 'aceita_pernoite' => 1,
   'especialidades' => 'Passeios de trem, Excursões rodoviárias',
   'cidade' => 'São Paulo', 'uf' => 'SP', 'cadastur_numero' => '00.000000.00-0', 'cadastur_situacao' => 'Ativo',
-  'cadastur_uf' => 'SP', 'cadastur_categorias' => 'Regional, Nacional',
+  'cadastur_uf' => 'SP', 'cadastur_categorias' => 'Guia Regional, Guia de Excursão Nacional',
   'senha_hash' => hash_senha('Guia2026teste'), 'termos_aceitos_em' => $agora,
   'aprovado_em' => $agora, 'aprovado_por' => $adminId, 'criado_em' => $agora,
 ]);
