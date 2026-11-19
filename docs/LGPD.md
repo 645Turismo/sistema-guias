@@ -33,7 +33,7 @@ Revise com assessoria jurídica antes de tratar como definitivo.
 Prazos são constantes no topo de `app/lib/lgpd.php`; a política pública cita esses mesmos valores.
 
 ## Pendências de decisão (não resolvíveis só no código)
-- Designar formalmente o encarregado (DPO, art. 41) e, se quiser, publicar o nome. Hoje o canal é o e-mail `email_alertas_lista` (padrão `contato@645turismo.com.br`).
+- Designar formalmente o encarregado (DPO, art. 41) e, se quiser, publicar o nome. Hoje o canal é o e-mail `email_alertas_lista` (padrão `operacional@645turismo.com.br`).
 - Confirmar os prazos de retenção com a assessoria jurídica (passageiros: 180 dias; fiscal: 5 anos).
 - Fontes do Google Fonts (`comum/head.php`): enviam o IP ao Google. Para eliminar, hospedar as fontes no próprio servidor.
 - Cadastros e passageiros que existiam antes desta versão não têm `termos_versao`/`consentimento_saude_em`; o consentimento de saúde é pedido na próxima edição do perfil.

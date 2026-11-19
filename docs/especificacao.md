@@ -35,7 +35,7 @@ Código do guia: 3 primeiros + 3 últimos dígitos do CPF (com sufixo -2, -3 se 
 - Colunas: Nome completo, Tipo do documento, Documento, Data de nascimento, Venda (nº da reserva), Embarque (local), Observação, Poltrona, Telefone.
 - Importação da planilha em **.xlsx ou .csv** (ou colando linhas); cabeçalho reconhecido pelo nome, em qualquer ordem.
 - Veículos: Micro-ônibus 26, Ônibus Padrão 46, Ônibus Padrão 50, Ônibus DD 64 (piso superior e inferior), ou outro tipo com descrição e capacidade.
-- Alterações do guia avisam por e-mail o endereço configurado (hoje contato@645turismo.com.br).
+- Alterações do guia avisam por e-mail o endereço configurado (hoje operacional@645turismo.com.br).
 
 ## Infraestrutura (Locaweb)
 Subdomínio `sistema` com SSL, PHP 8, banco MySQL, conta de e-mail para envios (SPF/DKIM), backup diário e cron para lembretes. Instalação pela página `/instalar` (detalhes no README do repositório do sistema).
