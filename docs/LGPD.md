@@ -27,6 +27,7 @@ Revise com assessoria jurídica antes de tratar como definitivo.
 | Localização em `envios` | 180 dias |
 | `login_tentativas`, `password_resets` | 30 dias |
 | `emails_enviados` | 180 dias |
+| `emails_pendentes` (fila de reenvio após erro SMTP 451) | some ao entregar ou após 6 tentativas; descarte de segurança em 3 dias |
 | `auditoria` | 730 dias |
 
 Prazos são constantes no topo de `app/lib/lgpd.php`; a política pública cita esses mesmos valores.
