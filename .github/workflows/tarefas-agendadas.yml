@@ -1,0 +1,16 @@
+name: Tarefas agendadas do sistema
+
+# A hospedagem não permite cron a cada poucos minutos. Este acesso a cada 5 minutos faz o sistema rodar
+# as tarefas que ele executa ao fim de cada requisição (lembretes de embarque e reenvio de e-mails com erro 451).
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  acionar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Acessar o sistema
+        run: curl --silent --show-error --fail --max-time 60 --output /dev/null --write-out "HTTP %{http_code}\n" https://sistema.645turismo.com.br/login
