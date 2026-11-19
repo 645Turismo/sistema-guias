@@ -13,4 +13,4 @@ jobs:
     timeout-minutes: 2
     steps:
       - name: Acessar o sistema
-        run: curl --silent --show-error --fail --max-time 60 --output /dev/null --write-out "HTTP %{http_code}\n" https://sistema.645turismo.com.br/login
+        run: curl --silent --show-error --fail --max-time 60 --output /dev/null --write-out "HTTP %{http_code}\n" https://sistema.645turismo.com.br/
